@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NAMXN Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAMXN</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="star-bg"></div>
-  <div class="grid-bg"></div>
-  <div class="loading-bar"></div>
-
-  <nav>
-    <div><strong class="logo">NAMXN</strong></div>
-    <div>
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <header>
+    <nav>
+      <h1 class="logo">NAM<span class="x">X</span>N</h1>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section id="hero">
-    <h1>Welcome to NAMXN's Grid</h1>
-    <p>A Retro-Future Portfolio Experience</p>
+    <h2>Retro-Future Dev Mode: Activated</h2>
+    <p>Loading NAMXN... Please stand by.</p>
   </section>
 
   <section id="about">
-    <h1>About Me</h1>
-    <p>This is the section where you’ll flex your origin story.</p>
+    <h2>About Me</h2>
+    <p>This section talks about how cool I am. Pixelated wisdom and retro rebel energy.</p>
+    <img src="assets/placeholder1.png" alt="about placeholder">
   </section>
 
   <section id="projects">
-    <h1>Projects</h1>
-    <p>Showcase all your pixel-perfect masterpieces here.</p>
+    <h2>Projects</h2>
+    <div class="project">
+      <img src="assets/placeholder2.png" alt="project img">
+      <p>Project Title: Glitchy Grid</p>
+    </div>
+    <div class="project">
+      <img src="assets/placeholder3.png" alt="project img">
+      <p>Project Title: Darkpunk Dashboard</p>
+    </div>
   </section>
 
   <section id="contact">
-    <h1>Contact</h1>
-    <p>Let them hit you up—retro-style.</p>
+    <h2>Contact Me</h2>
+    <p>Email me at <a href="mailto:namxn@github.io">namxn@github.io</a></p>
   </section>
+
+  <footer>
+    <p>© 2025 NAMXN. Built in the grid, for the grid.</p>
+  </footer>
 </body>
 </html>

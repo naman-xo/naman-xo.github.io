@@ -1,103 +1,110 @@
-:root {
-  --rich-red: #ad0013;
-  --bronze-gold: #a67d43;
-  --deep-black: #121312;
-  --font-pixel: 'Press Start 2P', cursive;
-  --font-body: 'Space Grotesk', sans-serif;
-}
-
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  background-color: var(--deep-black);
-  color: var(--bronze-gold);
-  font-family: var(--font-body);
+  font-family: 'Courier New', monospace;
+  background-color: #121312;
+  color: #a67d43;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 nav {
-  position: fixed;
+  background-color: #ad0013;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
   top: 0;
-  width: 100%;
-  background-color: var(--deep-black);
-  border-bottom: 2px solid var(--rich-red);
   z-index: 1000;
-  padding: 1rem 2rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-nav a {
-  color: var(--bronze-gold);
+nav ul li a {
+  color: #fefefe;
   text-decoration: none;
-  margin-left: 2rem;
-  font-family: var(--font-pixel);
-  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.3s;
 }
 
-section {
-  min-height: 100vh;
-  padding: 6rem 2rem 2rem;
+nav ul li a:hover {
+  color: #a67d43;
 }
 
-#hero {
-  background: radial-gradient(ellipse at center, #1b1b1b 0%, #121312 100%);
+.glitch-section {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background: radial-gradient(#121312, #000);
+  color: #fefefe;
   text-align: center;
 }
 
-h1 {
-  font-family: var(--font-pixel);
-  color: var(--rich-red);
-  text-shadow: 0 0 5px var(--rich-red);
-  font-size: 2rem;
+.glitch {
+  position: relative;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #fefefe;
+  text-transform: uppercase;
 }
 
-.star-bg {
-  position: fixed;
-  top: 0;
+.glitch::before, .glitch::after {
+  content: attr(data-text);
+  position: absolute;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/stars.png');
-  background-size: cover;
-  opacity: 0.1;
+  right: 0;
+  animation: glitch 2s infinite;
+}
+
+.glitch::before {
+  color: #ad0013;
   z-index: -1;
-  animation: flicker 10s infinite alternate;
+  top: -2px;
 }
 
-@keyframes flicker {
-  0% { opacity: 0.05; }
-  100% { opacity: 0.2; }
-}
-
-.loading-bar {
-  height: 8px;
-  background: linear-gradient(90deg, var(--rich-red), var(--bronze-gold));
-  animation: loading 2s linear infinite;
-}
-
-@keyframes loading {
-  0% { width: 0%; }
-  100% { width: 100%; }
-}
-
-.grid-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
+.glitch::after {
+  color: #a67d43;
   z-index: -2;
+  top: 2px;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -1px); }
+  60% { transform: translate(-2px, 1px); }
+  80% { transform: translate(1px, -3px); }
+  100% { transform: translate(0); }
+}
+
+.torn-section {
+  padding: 80px 20px;
+  background-color: #121312;
+  border-top: 10px dashed #ad0013;
+  border-bottom: 10px dashed #a67d43;
+  background-image: url('assets/torn-paper.png'); /* Placeholder torn texture */
+  background-repeat: repeat;
+  background-size: contain;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: #ad0013;
+  text-shadow: 2px 2px #121312;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #fefefe;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: auto;
 }
