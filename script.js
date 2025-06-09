@@ -1,6 +1,6 @@
 /* === script.js === */
 
-// Smooth scroll is handled via CSS (scroll-behavior: smooth), but for browsers that don't support it:
+// Smooth scroll for all anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -10,12 +10,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Glitch hover effect
+// Glitch hover effect for nav links
 const navLinks = document.querySelectorAll('nav a');
 navLinks.forEach(link => {
   link.addEventListener('mouseover', () => {
-    link.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
-    link.style.filter = 'contrast(200%) brightness(150%)';
+    link.style.transform = `translate(${Math.random() * 5 - 2.5}px, ${Math.random() * 5 - 2.5}px)`;
+    link.style.filter = 'contrast(200%) brightness(130%)';
   });
 
   link.addEventListener('mouseleave', () => {
@@ -24,26 +24,27 @@ navLinks.forEach(link => {
   });
 });
 
-// Loading bar FX (fake placeholder logic)
+// Fake loading bar effect on page load
 window.addEventListener('load', () => {
-  const bar = document.createElement('div');
-  bar.style.position = 'fixed';
-  bar.style.top = '0';
-  bar.style.left = '0';
-  bar.style.width = '100%';
-  bar.style.height = '3px';
-  bar.style.background = 'linear-gradient(90deg, cyan, var(--red))';
-  bar.style.animation = 'loadBar 2s ease-out forwards';
-  document.body.appendChild(bar);
+  const loadingBar = document.createElement('div');
+  loadingBar.style.position = 'fixed';
+  loadingBar.style.top = '0';
+  loadingBar.style.left = '0';
+  loadingBar.style.width = '0';
+  loadingBar.style.height = '4px';
+  loadingBar.style.background = 'linear-gradient(90deg, cyan, #ad0013)';
+  loadingBar.style.zIndex = '1000';
+  loadingBar.style.animation = 'loadBar 2s ease forwards';
+  document.body.appendChild(loadingBar);
 
-  setTimeout(() => bar.remove(), 2200);
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes loadBar {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  setTimeout(() => loadingBar.remove(), 2200);
 });
-
-// Add CSS animation via JS
-const style = document.createElement('style');
-style.innerHTML = `
-@keyframes loadBar {
-  0% { width: 0%; }
-  100% { width: 100%; }
-}`;
-document.head.appendChild(style);
